@@ -1,0 +1,4 @@
+To Dos:
+- Need fields for models
+- Need to know the fields required for admin
+- Need to implement security settings
