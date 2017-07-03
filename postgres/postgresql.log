@@ -1,0 +1,6 @@
+LOG:  database system was shut down at 2017-07-02 22:21:33 PDT
+LOG:  MultiXact member wraparound protections are now enabled
+LOG:  database system is ready to accept connections
+LOG:  autovacuum launcher started
+FATAL:  role "dannytsoi" does not exist
+FATAL:  role "dannytsoi" does not exist

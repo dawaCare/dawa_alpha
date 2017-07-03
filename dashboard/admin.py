@@ -1,11 +1,18 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
-
+from import_export.resources import ModelResource
+from import_export.admin import ImportExportMixin, ImportMixin, ExportActionModelAdmin
 from django.contrib import admin
-from models import Patient
+from dashboard.models import Outpatient
 
 # Register your models here.
-class PatientAdmin(admin.ModelAdmin):
-    list_display = ('Patient_name', 'age', 'location', 'condition', 'medication', 'initial_visit', 'followup_appt', 'reminder_freq')
 
-admin.site.register(Patient, PatientAdmin)
+class OutpatientResource(ModelResource):
+
+    class Meta:
+        model = Outpatient
+
+class OutpatientAdmin(ImportExportMixin, admin.ModelAdmin):
+    resource_class = OutpatientResource
+    # list_display = ('Patient_name', 'age', 'location', 'condition', 'medication', 'initial_visit', 'followup_appt', 'reminder_freq')
+    # list_display = ('visit_date', 'first_name', 'last_name', 'age', 'gender')
+
+admin.site.register(Outpatient, OutpatientAdmin)
