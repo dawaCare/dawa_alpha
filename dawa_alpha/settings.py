@@ -28,7 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['dawa-test.herokuapp.com', 'localhost']
+ALLOWED_HOSTS = ['dawa-alpha.herokuapp.com', 'localhost']
 
 
 # Application definition
@@ -80,19 +80,7 @@ WSGI_APPLICATION = 'dawa_alpha.wsgi.application'
 
 
 ##Added import_export settings code
-if os.environ.get('IMPORT_EXPORT_TEST_TYPE') == 'mysql-innodb':
-    IMPORT_EXPORT_USE_TRANSACTIONS = True
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql',
-            'TEST_NAME': 'import_export_test',
-            'USER': os.environ.get('IMPORT_EXPORT_MYSQL_USER', 'root'),
-            'OPTIONS': {
-               'init_command': 'SET storage_engine=INNODB',
-            }
-        }
-    }
-elif os.environ.get('IMPORT_EXPORT_TEST_TYPE') == 'postgres':
+if os.environ.get('IMPORT_EXPORT_TEST_TYPE') == 'postgres':
     IMPORT_EXPORT_USE_TRANSACTIONS = True
     DATABASES = {
         'default': {
