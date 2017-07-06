@@ -12,7 +12,6 @@ class OutpatientResource(ModelResource):
 
 class OutpatientAdmin(ImportExportMixin, admin.ModelAdmin):
     resource_class = OutpatientResource
-    # list_display = ('Patient_name', 'age', 'location', 'condition', 'medication', 'initial_visit', 'followup_appt', 'reminder_freq')
-    # list_display = ('visit_date', 'first_name', 'last_name', 'age', 'gender')
+    list_display = ('last_name', 'first_name', 'age', 'address', 'doctors_note', 'medication_1', 'medication_2', 'medication_3', 'medication_4', 'visit_date', 'reminder_schedule_1_date', 'reminder_frequency')
 
 admin.site.register(Outpatient, OutpatientAdmin)

@@ -8,11 +8,10 @@ class Outpatient(models.Model):
     visit_date = models.CharField(max_length=100, blank=True)
     first_name = models.CharField('First Name', max_length=100)
     last_name = models.CharField(max_length=100)
-    # age contains invalid literals for float
     age = models.CharField(max_length=50,blank=True, null=True)
     gender = models.CharField(max_length=20)
-    main_phone = models.PositiveIntegerField(null=True)
-    alt_phone = models.PositiveIntegerField(null=True)
+    main_phone = models.BigIntegerField(null=True)
+    alt_phone = models.BigIntegerField(null=True)
     occupation = models.CharField(max_length=40)
     address = models.CharField(max_length=200)
     admitted = models.BooleanField(default=False)
@@ -38,11 +37,15 @@ class Outpatient(models.Model):
     contacted_patient = models.BooleanField(default=False)
     patient_showed_up = models.BooleanField(default=False)
     comment = models.TextField(blank=True, null=True)
+    has_all_medications = models.BooleanField(default=False)
     sent = models.BooleanField(default=False)
     issues_with_taking_medication = models.BooleanField(default=False)
     reminder_frequency = models.CharField(max_length=300, blank=True)
     reminder_end_date = models.CharField(max_length=100, blank=True, null=True)
     comments = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.last_name
 
     def __str__(self):
         return self.last_name
