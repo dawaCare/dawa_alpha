@@ -20,7 +20,7 @@ class Outpatient(models.Model):
     appt_date = models.CharField(max_length=100, blank=True, null=True)
     reminder_schedule_1_date = models.CharField(max_length=200, blank=True)
     sign_consent_for_roi = models.BooleanField(default=False)
-    reason_for_not_signing_consent = models.CharField(max_length=300, blank=True)
+    reason_for_not_signing_consent = models.CharField(max_length=300, blank=True, null=True)
     name_of_center = models.CharField(max_length=100, blank=True)
     patient_received_ed = models.BooleanField(default=False)
     consultation_fee = models.CharField(max_length=50, blank=True, null=True)
