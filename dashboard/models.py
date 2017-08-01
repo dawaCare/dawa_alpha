@@ -6,12 +6,12 @@ from django.utils.encoding import python_2_unicode_compatible
 @python_2_unicode_compatible
 class Outpatient(models.Model):
     visit_date = models.CharField(max_length=100, blank=True)
-    first_name = models.CharField('First Name', max_length=100)
+    first_name = models.CharField('First Name', max_length=100, blank=True)
     last_name = models.CharField(max_length=100, blank=True)
     age = models.CharField(max_length=50,blank=True)
     gender = models.CharField(max_length=20, blank=True)
     main_phone = models.BigIntegerField(null=True)
-    alt_phone = models.BigIntegerField(null=True)
+    alt_phone = models.BigIntegerField(null=True, blank=True)
     occupation = models.CharField(max_length=40, blank=True)
     address = models.CharField(max_length=200, blank=True)
     admitted = models.BooleanField(default=False)
